@@ -1,0 +1,37 @@
+[
+  {
+    "request": {
+      "body": "codigoTabelaReferencia=250&codigoTipoVeiculo=1&codigoMarca=23&codigoModelo=1010&anoModelo=1990&codigoTipoCombustivel=1&tipoConsulta=tradicional",
+      "headers": [],
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://veiculos.fipe.org.br/api/veiculos/ConsultarValorComTodosParametros"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"Valor\":\"R$ 6.232,00\",\"Marca\":\"GM - Chevrolet\",\"Modelo\":\"Chevette L / SL / SL/e / DL / SE 1.6\",\"AnoModelo\":1990,\"Combustivel\":\"Gasolina\",\"CodigoFipe\":\"004030-4\",\"MesReferencia\":\"janeiro de 2020 \",\"Autenticacao\":\"2w1nr9pn8hp\",\"TipoVeiculo\":1,\"SiglaCombustivel\":\"G\",\"DataConsulta\":\"sábado, 4 de janeiro de 2020 15:05\"}",
+      "headers": {
+        "Date": "Sat, 04 Jan 2020 18:05:50 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "318",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d60121112856fd360fad382d8ecbd24d31578161150; expires=Mon, 03-Feb-20 18:05:50 GMT; path=/; domain=.fipe.org.br; HttpOnly; SameSite=Lax",
+        "Cache-Control": "private, s-maxage=0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-XSS-Protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000",
+        "X-Content-Type-Options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "Access-Control-Allow-Origin": "*",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "54ff24959d42f1da-GRU"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

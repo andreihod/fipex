@@ -14,6 +14,8 @@ defmodule Fipex.ApiTest do
   @invalid_make_code 666
   @valid_model_code 1010
   @invalid_model_code -1
+  @valid_model_year_code "1990-1"
+  @invalid_model_year_code "2019-2"
 
   test "fetch_reference_dates/0" do
     use_cassette "fetch_reference_dates" do
@@ -79,6 +81,45 @@ defmodule Fipex.ApiTest do
         @valid_vehicle_type,
         @valid_make_code,
         @invalid_model_code
+      )
+      assert reason == "nadaencontrado"
+    end
+  end
+
+  test "fetch_price/5 returns a map with data for given model/year/reference_date" do
+    use_cassette "fetch_price" do
+      {:ok, model_price} = Fipex.Api.fetch_price(
+        @valid_reference_date,
+        @valid_vehicle_type,
+        @valid_make_code,
+        @valid_model_code,
+        @valid_model_year_code
+      )
+
+      assert model_price == %{
+        "Valor" => "R$ 6.232,00",
+        "Marca" => "GM - Chevrolet",
+        "Modelo" => "Chevette L / SL / SL/e / DL / SE 1.6",
+        "AnoModelo" => 1990,
+        "Combustivel" => "Gasolina",
+        "CodigoFipe" => "004030-4",
+        "MesReferencia" => "janeiro de 2020 ",
+        "Autenticacao" => "2w1nr9pn8hp",
+        "TipoVeiculo" => 1,
+        "SiglaCombustivel" => "G",
+        "DataConsulta" => "sábado, 4 de janeiro de 2020 15:05"
+      }
+    end
+  end
+
+   test "fetch_price/5 fails when a parameter is invalid" do
+    use_cassette "fetch_price_invalid" do
+      {:error, reason} = Fipex.Api.fetch_price(
+        @valid_reference_date,
+        @valid_vehicle_type,
+        @valid_make_code,
+        @valid_model_code,
+        @invalid_model_year_code
       )
       assert reason == "nadaencontrado"
     end
