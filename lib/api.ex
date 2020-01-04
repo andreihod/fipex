@@ -17,6 +17,16 @@ defmodule Fipex.Api do
     Fipex.post('ConsultarModelos', {:form, params}) |> process_response
   end
 
+  def fetch_model_years(reference_date_code, vehicle_type, make_code, model_code) do
+    params = [
+      codigoTabelaReferencia: reference_date_code,
+      codigoTipoVeiculo: vehicle_type,
+      codigoMarca: make_code,
+      codigoModelo: model_code
+    ]
+    Fipex.post('ConsultarAnoModelo', {:form, params}) |> process_response
+  end
+
   defp process_response({:ok, %HTTPoison.Response{status_code: 200, body: body}}) do
     case body do
       %{"erro" => reason} -> {:error, reason}

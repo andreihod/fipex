@@ -1,0 +1,37 @@
+[
+  {
+    "request": {
+      "body": "codigoTabelaReferencia=250&codigoTipoVeiculo=1&codigoMarca=23&codigoModelo=1010",
+      "headers": [],
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://veiculos.fipe.org.br/api/veiculos/ConsultarAnoModelo"
+    },
+    "response": {
+      "binary": false,
+      "body": "[{\"Label\":\"1993 Gasolina\",\"Value\":\"1993-1\"},{\"Label\":\"1992 Gasolina\",\"Value\":\"1992-1\"},{\"Label\":\"1991 Gasolina\",\"Value\":\"1991-1\"},{\"Label\":\"1990 Gasolina\",\"Value\":\"1990-1\"},{\"Label\":\"1989 Gasolina\",\"Value\":\"1989-1\"},{\"Label\":\"1988 Gasolina\",\"Value\":\"1988-1\"},{\"Label\":\"1987 Gasolina\",\"Value\":\"1987-1\"},{\"Label\":\"1986 Gasolina\",\"Value\":\"1986-1\"},{\"Label\":\"1985 Gasolina\",\"Value\":\"1985-1\"}]",
+      "headers": {
+        "Date": "Sat, 04 Jan 2020 17:54:33 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "388",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=dd1274e1195ed41d49b86cf687665f31d1578160473; expires=Mon, 03-Feb-20 17:54:33 GMT; path=/; domain=.fipe.org.br; HttpOnly; SameSite=Lax",
+        "Cache-Control": "private, s-maxage=0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-XSS-Protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000",
+        "X-Content-Type-Options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "Access-Control-Allow-Origin": "*",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "54ff14110c70f728-GRU"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

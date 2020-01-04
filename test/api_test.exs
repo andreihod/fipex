@@ -12,6 +12,8 @@ defmodule Fipex.ApiTest do
   @invalid_vehicle_type 66
   @valid_make_code 23
   @invalid_make_code 666
+  @valid_model_code 1010
+  @invalid_model_code -1
 
   test "fetch_reference_dates/0" do
     use_cassette "fetch_reference_dates" do
@@ -53,6 +55,31 @@ defmodule Fipex.ApiTest do
     use_cassette "fetch_models_invalid" do
       {:error, reason} =
         Fipex.Api.fetch_models(@valid_reference_date, @valid_vehicle_type, @invalid_make_code)
+      assert reason == "nadaencontrado"
+    end
+  end
+
+  test "fetch_model_years/4 returns a list of years for a given model" do
+    use_cassette "fetch_model_years" do
+      {:ok, model_year} = Fipex.Api.fetch_model_years(
+        @valid_reference_date,
+        @valid_vehicle_type,
+        @valid_make_code,
+        @valid_model_code
+      )
+
+      assert Enum.at(model_year, 3) == %{"Label" => "1990 Gasolina", "Value" => "1990-1"}
+    end
+  end
+
+   test "fetch_model_years/4 fails when a parameter is invalid" do
+    use_cassette "fetch_model_years_invalid" do
+      {:error, reason} = Fipex.Api.fetch_model_years(
+        @valid_reference_date,
+        @valid_vehicle_type,
+        @valid_make_code,
+        @invalid_model_code
+      )
       assert reason == "nadaencontrado"
     end
   end
