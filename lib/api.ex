@@ -1,11 +1,20 @@
 defmodule Fipex.Api do
   def fetch_reference_dates do
-    Fipex.post('ConsultarTabelaDeReferencia', '')
+    Fipex.post('ConsultarTabelaDeReferencia', [])
+      |> process_response
+  end
+
+  def fetch_makes(reference_date_code, vehicle_type) do
+    body = [codigoTabelaReferencia: reference_date_code, codigoTipoVeiculo: vehicle_type]
+    Fipex.post('ConsultarMarcas', {:form, body})
       |> process_response
   end
 
   defp process_response({:ok, %HTTPoison.Response{status_code: 200, body: body}}) do
-    {:ok, body}
+    case body do
+      %{"erro" => reason} -> {:error, reason}
+      _ -> {:ok, body}
+    end
   end
 
   defp process_response({:ok, %HTTPoison.Response{status_code: status_code}}) do

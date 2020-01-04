@@ -15,4 +15,22 @@ defmodule Fipex.ApiTest do
       assert Enum.count(dates) == 229
     end
   end
+
+  test "fetch_makes/2 returns a list of makes" do
+    use_cassette "fetch_makes" do
+      {:ok, makes} = Fipex.Api.fetch_makes(250, Fipex.vehicle_types[:car])
+      assert Enum.at(makes, 0) == %{"Label" => "Acura", "Value" => "1"}
+    end
+  end
+
+  test "fetch_makes/2 fails when a parameter are invalid" do
+    use_cassette "fetch_makes_invalid" do
+      {:error, reason} = Fipex.Api.fetch_makes(666, Fipex.vehicle_types[:car])
+      assert reason == "nadaencontrado"
+
+      {:error, reason} = Fipex.Api.fetch_makes(250, Fipex.vehicle_types[:car] + 66)
+      assert reason == "nadaencontrado"
+    end
+  end
+
 end

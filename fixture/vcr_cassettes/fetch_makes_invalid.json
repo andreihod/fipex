@@ -1,0 +1,37 @@
+[
+  {
+    "request": {
+      "body": "codigoTabelaReferencia=666&codigoTipoVeiculo=1",
+      "headers": [],
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://veiculos.fipe.org.br/api/veiculos/ConsultarMarcas"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"codigo\":\"0\",\"erro\":\"nadaencontrado\"}",
+      "headers": {
+        "Date": "Sat, 04 Jan 2020 17:30:23 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "38",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=d0c400a2427deecdaaf2b6af94bc5b78a1578159023; expires=Mon, 03-Feb-20 17:30:23 GMT; path=/; domain=.fipe.org.br; HttpOnly; SameSite=Lax",
+        "Cache-Control": "private, s-maxage=0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-XSS-Protection": "1; mode=block",
+        "Strict-Transport-Security": "max-age=31536000",
+        "X-Content-Type-Options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "Access-Control-Allow-Origin": "*",
+        "CF-Cache-Status": "DYNAMIC",
+        "Expect-CT": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+        "Server": "cloudflare",
+        "CF-RAY": "54fef0a639c2f1fb-GRU"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
