@@ -14,6 +14,7 @@ defmodule Fipex.Api do
       codigoTipoVeiculo: vehicle_type,
       codigoMarca: make_code
     ]
+
     Fipex.post('ConsultarModelos', {:form, params}) |> process_response
   end
 
@@ -24,11 +25,13 @@ defmodule Fipex.Api do
       codigoMarca: make_code,
       codigoModelo: model_code
     ]
+
     Fipex.post('ConsultarAnoModelo', {:form, params}) |> process_response
   end
 
   def fetch_price(reference_date_code, vehicle_type, make_code, model_code, model_year_code) do
     [year_model, fuel_type] = String.split(model_year_code, "-")
+
     params = [
       codigoTabelaReferencia: reference_date_code,
       codigoTipoVeiculo: vehicle_type,
@@ -38,6 +41,7 @@ defmodule Fipex.Api do
       codigoTipoCombustivel: fuel_type,
       tipoConsulta: "tradicional"
     ]
+
     Fipex.post('ConsultarValorComTodosParametros', {:form, params}) |> process_response
   end
 
