@@ -1,18 +1,14 @@
 defmodule Fipex do
-  @moduledoc """
-  Documentation for Fipex.
-  """
+  use HTTPoison.Base
 
-  @doc """
-  Hello world.
+  @endpoint "https://veiculos.fipe.org.br/api/veiculos/"
 
-  ## Examples
+  def process_url(url) do
+    @endpoint <> url
+  end
 
-      iex> Fipex.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def process_response_body(body) do
+    body
+    |> Poison.decode!
   end
 end
