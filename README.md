@@ -1,21 +1,23 @@
 # Fipex
 
-**TODO: Add description**
+Fipex is a wrapper to crawl the [Fipe](https://veiculos.fipe.org.br/) website just like a API.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `fipex` to your list of dependencies in `mix.exs`:
+Since it's not published in the Hex repo yet, you need to add this repo to your list of dependencies
+at `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:fipex, "~> 0.1.0"}
+    {:fipex, git: "https://github.com/andreihod/fipex"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/fipex](https://hexdocs.pm/fipex).
+## To-do
+
+* Documenting
+* Publish at Hex
+
 
